@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Employee{
+  private:
+    string name;
+    int EmpId;
+    
+  public:
+    void Employee(string _name, int _EmpId){
+      name = _name;
+      EmpId = _EmpId;
+    }
+    
+    int GetEmpId(){
+      return EmpId;
+    }
+    
+    string GetName(){
+      return name;
+    }
+};
+
+class EmployeeDataBase{
+  private:
+    vector<Employee> Database;
+    int EmpCount ;
+    
+  public:
+    void AddEmp(){
+      
+    }
+    
+    void DeleteEmp(){
+    
+    }
+    
+    void DisplayDB(){
+      for(int i=0; i<EmpCount; i++){
+        cout << "\n" << i << "\n";
+        cout << "Employee Name: " << Database[i];
+        cout << "Employee Id: " << Database[]
+      }
+    }
+    
+    
+};
+
+int main(){
+  
+  return 0;
+}
