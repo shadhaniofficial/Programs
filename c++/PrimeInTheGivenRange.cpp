@@ -19,8 +19,6 @@ bool prime_num(int n){
 }
 
 
-
-
 void _RangePrime(int n){
   vector<int> prime;
   int size = 0;
