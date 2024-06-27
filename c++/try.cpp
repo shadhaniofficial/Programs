@@ -3,17 +3,20 @@ using namespace std;
 
 void prime_num(int n){
   //i= sqrt(n) { i*i = n }
-  if(n<2){
-    cout << "Not a Prime Number";
+  int count=0;
+  for(int i=1; i*i <= n; i++){
+    if(n%i == 0){
+      count++;
+    }
+    if((n/i)!=i){
+      count++;
+    }
+  }
+  if(count == 2){
+    cout << "Prime Number";
   }
   else{
-    for(int i = 2 ; (i*i)<=n; i++){
-      if(n%i == 0){
-        cout << "Not a prime Number";
-        exit(0);
-      }
-    }
-    cout << "Prime Number";
+    cout << "Not a Prime Number";
   }
 }
 
