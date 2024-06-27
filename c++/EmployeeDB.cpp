@@ -34,9 +34,32 @@ class EmployeeDataBase{
       EmpCount = Database.size();
     }
     
-    //void DeleteEmp(){
-      
-    //}
+    // Method to delete an employee by their ID
+    void DeleteEmpById(int empId) {
+      for(auto it = Database.begin(); it!= Database.end(); ++it) {
+        if(it->GetEmpId() == empId) {
+            Database.erase(it);
+            --EmpCount;
+            cout << "Employee deleted successfully." << endl;
+            return;
+        }
+      }
+      cout << "No employee found with the given ID." << endl;
+    }
+
+    // Method to delete an employee by their name
+    void DeleteEmpByName(string empName) {
+      for(auto it = Database.begin(); it!= Database.end(); ++it) {
+        if(it->GetName() == empName) {
+            Database.erase(it);
+            --EmpCount;
+            cout << "Employee deleted successfully." << endl;
+            return;
+        }
+      }
+      cout << "No employee found with the given name." << endl;
+    }
+    
     
     void DisplayDB(){
       for(int i=0; i<EmpCount; i++){
@@ -50,10 +73,12 @@ class EmployeeDataBase{
 };
 
 void menu(){
-  cout << endl << "Employee Database" << endl;
+  cout << endl << "\nEmployee Database" << endl;
   cout << "1. Add New Employee" << endl;
   cout << "2. Display All Employees" << endl;
-  cout << "3. Exit" << endl;
+  cout << "3. delete Employee by Name" << endl;
+  cout << "4. delete Employee by Employee Id" << endl;
+  cout << "5. Exit" << endl;
 }
 
 
@@ -61,6 +86,8 @@ void menu(){
 int main(){
   int id;
   string Name;
+  string del;
+  int delid;
   EmployeeDataBase db;
   while(true){
     int option;
@@ -80,6 +107,16 @@ int main(){
         db.DisplayDB();
         break;
       case 3:
+        cout << "Enter the Employee Name: ";
+        cin >> del;
+        db.DeleteEmpByName(del);
+        break;
+      case 4:
+        cout << "Enter the Employee ID: ";
+        cin >> delid;
+        db.DeleteEmpById(delid);
+        break;
+      case 5:
         exit(0);
     }
   }
