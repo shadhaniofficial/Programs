@@ -17,13 +17,11 @@ bool prime_num(int n){
   
 }
 
-//method1
-
-void _Prime(int start, int end){
+void _Prime(int range){
   vector<int> prime;
-  int n = start;
+  int n = 0;
   int size;
-  for(int i=start; i<end; i++){
+  for(int i=0; i<range; i++){
     n++;
     int res = prime_num(n);
     if(res == 1){
@@ -36,26 +34,12 @@ void _Prime(int start, int end){
   }
 }
 
-// method 2
 
-void _Prime1(int start, int end){
-    vector<int> prime;
-    for(int i = start; i <= end; i++){
-        if(prime_num(i)){
-            prime.push_back(i);
-        }
-    }
-
-    for(const auto& p : prime){
-        cout << p << " ";
-    }
-    cout << endl;
-}
 
 int main(){
-  int s,e;
-  cout << "Enter the range: ";
-  cin >> s >> e;
-  _Prime(s,e);
+  int n;
+  cout << "Enter the number: ";
+  cin >> n;
+  _Prime(n);
   
 }
