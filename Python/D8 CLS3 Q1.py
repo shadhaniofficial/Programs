@@ -1,0 +1,11 @@
+n=int(input())
+x=int(input())
+i=0
+s=0
+while(i<=n):
+    if(i%x==0):
+        continue
+    else:
+        s+=i
+    i+=1
+print(s)
