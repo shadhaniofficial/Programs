@@ -4,10 +4,12 @@ using namespace std;
 int GCD(int x, int y);
 int Gcd(int x, int y);
 int gcd(int x, int y);
+int gcd_no_recursion(int x, int y);
 
 static int count1 = 1;
 static int count2 = 1;
 static int count3 = 1;
+static int count4 = 1;
 
 int main(){
   int num1, num2;
@@ -20,10 +22,13 @@ int main(){
   cout << "The GCD of the given two numbers were " << GCD(num1, num2) << endl; 
   cout << "The Gcd of the given two numbers were " << Gcd(num1, num2) << endl;
   cout << "The gcd of the given two numbers were " << gcd(num1, num2) << endl;
+  cout << "The gcd without recursion of the given two numbers were " << gcd_no_recursion(num1, num2) << endl;
   
   cout << "GCD count = " << count1 << endl;
   cout << "Gcd count = " << count2 << endl;
   cout << "gcd count = " << count3 << endl;
+  cout << "gcd no recursion count = " << count4 << endl;
+  
   return 0;
 }
   
@@ -50,4 +55,16 @@ int gcd(int x, int y){
   int n = x-y;
   if (n<0) n*=-1;
   return gcd(y, n);
+}
+
+int gcd_no_recursion(int x, int y){
+  int a = x;
+  int b = y;
+  while (a){
+    count4++;
+    int c = (a) ? (b%a) : (b);
+    b = a;
+    a = c;
+  }
+  return b;
 }
